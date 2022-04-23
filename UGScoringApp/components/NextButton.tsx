@@ -2,13 +2,12 @@
 
 import { View, Text, StyleSheet, Pressable, Platform } from 'react-native'
 
-export default function CreateButton() {
+export default function NextButton() {
 	return (
-		<View style={styles.container}>
+		<View>
 			<Pressable style={({ pressed }) => [styles.btnContainer, pressed ? styles.btnPressed : null]}>
-				<Text>Start Game </Text>
+				<Text>Next</Text>
 			</Pressable>
-			<Text style={styles.innerText}> Create a new game</Text>
 		</View>
 	)
 }
@@ -26,26 +25,23 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.25,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 8,
-		justifyContent: 'space-between',
-		alignItems: 'center',
 	},
 	btnContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: 8,
-		height: '100%',
-		width: '50%',
-		backgroundColor: 'red',
+		borderRadius: 50,
+		height: 50,
+		width: 50,
+		margin: 16,
+		overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
+		elevation: 4,
+		backgroundColor: 'white',
+		shadowColor: 'black',
+		shadowOpacity: 0.25,
+		shadowOffset: { width: 0, height: 2 },
+		shadowRadius: 8,
 	},
 	btnPressed: {
 		opacity: 0.5,
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-		marginBottom: 30,
-	},
-	innerText: {
-		margin: 7,
 	},
 })
