@@ -19,6 +19,7 @@ import NotFoundScreen from '../screens/NotFoundScreen'
 import TabOneScreen from '../screens/TabOneScreen'
 import TabTwoScreen from '../screens/TabTwoScreen'
 import Home from '../screens/Home'
+import Hole from '../screens/Hole'
 import Registration from '../screens/Registration'
 import Login from '../screens/Login'
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types'
@@ -41,9 +42,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 function RootNavigator() {
 	return (
 		<Stack.Navigator>
-			{/* <Stack.Screen name='Root' component={Home} options={{ headerShown: false }} /> */}
+			<Stack.Screen name='Root' component={Home} options={{ headerShown: false }} />
+			<Stack.Screen name='Hole' component={Hole} options={{ headerShown: false }} />
 			{/* <Stack.Screen name='Registration' component={Registration} options={{ headerShown: false }} /> */}
-			<Stack.Screen name='Root' component={Login} options={{ headerShown: false }} />
+			<Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
 			<Stack.Screen name='NotFound' component={NotFoundScreen} options={{ title: 'Oops!' }} />
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
 				<Stack.Screen name='Modal' component={ModalScreen} />
