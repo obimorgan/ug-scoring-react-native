@@ -1,29 +1,43 @@
 /** @format */
 
-import { View, Text, StyleSheet, Platform } from 'react-native'
+import { View, Text, StyleSheet, Platform, Pressable } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
 
-export default function SinglePlayerScore() {
+interface IProps {
+	add: Function
+	minus: Function
+}
+
+export default function SinglePlayerScore({ add, minus }: IProps) {
 	return (
-		<View style={styles.container}>
-			<View style={styles.innerContainer}>
-				<Text>Players name</Text>
-				<View style={styles.iconContainer}>
-					<Text>-</Text>
+		<View style={styles.wrapper}>
+			<View style={styles.container}>
+				<View style={styles.innerContainer}>
+					<Text>Players name</Text>
+					<View style={styles.iconDetails}>
+						<Text>0</Text>
+					</View>
 				</View>
-				<View style={styles.iconContainer}>
-					<Text>+</Text>
-				</View>
-				<View style={styles.iconContainer}>
-					<Text>0</Text>
-				</View>
+			</View>
+			<View style={styles.iconsContainer}>
+				<Pressable style={styles.iconDetails} onPress={() => add}>
+					<AntDesign name='minuscircle' size={30} color='black' />
+				</Pressable>
+				<Pressable style={styles.iconDetails} onPress={() => minus}>
+					<AntDesign name='pluscircle' size={30} color='black' />
+				</Pressable>
 			</View>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
+	wrapper: {
+		flexDirection: 'row',
+	},
 	container: {
-		width: 320,
+		flexDirection: 'row',
+		width: '50%',
 		borderRadius: 8,
 		overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
 		elevation: 4,
@@ -42,7 +56,13 @@ const styles = StyleSheet.create({
 		height: 60,
 		justifyContent: 'space-between',
 	},
-	iconContainer: {
-		marginHorizontal: 5,
+	iconsContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-around',
+		width: '50%',
+	},
+	iconDetails: {
+		marginHorizontal: 2,
 	},
 })
