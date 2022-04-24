@@ -4,26 +4,27 @@ import { View, Text, StyleSheet, Platform, Pressable } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
 interface IProps {
-	add: Function
-	minus: Function
+	add: () => any
+	minus: () => any
+	score: number
 }
 
-export default function SinglePlayerScore({ add, minus }: IProps) {
+export default function SinglePlayerScore({ add, minus, score }: IProps) {
 	return (
 		<View style={styles.wrapper}>
 			<View style={styles.container}>
 				<View style={styles.innerContainer}>
 					<Text>Players name</Text>
 					<View style={styles.iconDetails}>
-						<Text>0</Text>
+						<Text>{score}</Text>
 					</View>
 				</View>
 			</View>
 			<View style={styles.iconsContainer}>
-				<Pressable style={styles.iconDetails} onPress={() => add}>
+				<Pressable style={styles.iconDetails} onPress={minus}>
 					<AntDesign name='minuscircle' size={30} color='black' />
 				</Pressable>
-				<Pressable style={styles.iconDetails} onPress={() => minus}>
+				<Pressable style={styles.iconDetails} onPress={add}>
 					<AntDesign name='pluscircle' size={30} color='black' />
 				</Pressable>
 			</View>

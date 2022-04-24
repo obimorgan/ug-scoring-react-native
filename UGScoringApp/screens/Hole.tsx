@@ -1,9 +1,13 @@
 /** @format */
 
 import { View, Text, StyleSheet } from 'react-native'
-import Container from '../components/Container'
-import NextButton from '../components/NextButton'
-import SetPlayersScores from '../components/SetPlayersScores'
+import Container from '../src/components/Container'
+import NextButton from '../src/components/NextButton'
+import SetPlayersScores from '../src/components/SetPlayersScores'
+
+interface IProps {
+	Hole: string
+}
 
 const Hole = () => {
 	return (

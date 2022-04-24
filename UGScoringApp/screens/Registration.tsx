@@ -1,9 +1,9 @@
 /** @format */
 
 import { StyleSheet } from 'react-native'
-import Container from '../components/Container'
-import EditScreenInfo from '../components/EditScreenInfo'
-import { Text, View } from '../components/Themed'
+import Container from '../src/components/Container'
+import EditScreenInfo from '../src/components/EditScreenInfo'
+import { Text, View } from '../src/components/Themed'
 import { RootTabScreenProps } from '../types'
 
 export default function Registration({ navigation }: RootTabScreenProps<'TabOne'>) {

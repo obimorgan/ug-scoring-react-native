@@ -21,14 +21,26 @@ import TabTwoScreen from '../screens/TabTwoScreen'
 import Home from '../screens/Home'
 import Hole from '../screens/Hole'
 import Registration from '../screens/Registration'
-import Login from '../screens/Login'
+import Login from '../src/Authentication/Login'
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
 
+const AuthenticationStack = createNativeStackNavigator()
+const AuthenticationNavigator = () => {
+	return (
+		<AuthenticationStack.Navigator>
+			<AuthenticationStack.Screen name='Login' component={Login} />
+		</AuthenticationStack.Navigator>
+	)
+}
+
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
 	return (
-		<NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-			<RootNavigator />
+		// <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+		// 	<RootNavigator />
+		// </NavigationContainer>
+		<NavigationContainer>
+			<AuthenticationNavigator />
 		</NavigationContainer>
 	)
 }

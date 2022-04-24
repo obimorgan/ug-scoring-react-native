@@ -1,11 +1,11 @@
 /** @format */
 
 import { StyleSheet } from 'react-native'
-import Container from '../components/Container'
-import CreateButton from '../components/CreateButton'
-import JoinButton from '../components/JoinButton'
-import ProfileAvatar from '../components/ProfileAvatar'
-import WelcomeUser from '../components/WelcomeUser'
+import Container from '../src/components/Container'
+import CreateButton from '../src/components/CreateButton'
+import JoinButton from '../src/components/JoinButton'
+import ProfileAvatar from '../src/components/ProfileAvatar'
+import WelcomeUser from '../src/components/WelcomeUser'
 import { RootTabScreenProps } from '../types'
 
 export default function Home({ navigation }: RootTabScreenProps<'TabOne'>) {
