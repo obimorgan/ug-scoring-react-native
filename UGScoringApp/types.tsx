@@ -38,3 +38,11 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
 	BottomTabScreenProps<RootTabParamList, Screen>,
 	NativeStackScreenProps<RootStackParamList>
 >
+
+export interface IReduxStore {
+	user: IUser
+}
+
+export interface IUser {
+	isLoggedIn: boolean
+}

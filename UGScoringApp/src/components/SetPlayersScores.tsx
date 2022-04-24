@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import SinglePlayerScore from './SinglePlayerScore'
 import SetPlayersScoreHeader from './SetPlayersScoresHeader'
+import { players } from '../../Data/Players'
 
 const SetPlayersScores = () => {
 	const [score, setScore] = useState(0)
@@ -16,9 +17,15 @@ const SetPlayersScores = () => {
 	}
 
 	return (
-		<View style={styles.container}>
-			<SinglePlayerScore add={handleAddScore} minus={minusScore} score={score} />
-		</View>
+		<>
+			{players.map((player, index) => {
+				return (
+					<View key={index} style={styles.container}>
+						<SinglePlayerScore add={handleAddScore} minus={minusScore} score={score} player={player} />
+					</View>
+				)
+			})}
+		</>
 	)
 }
 export default SetPlayersScores

@@ -24,24 +24,15 @@ import Registration from '../screens/Registration'
 import Login from '../src/Authentication/Login'
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
+import { store } from '../redux/store'
+import { Provider } from 'react-redux'
 
 const AuthenticationStack = createNativeStackNavigator()
 const AuthenticationNavigator = () => {
 	return (
-		<AuthenticationStack.Navigator>
+		<AuthenticationStack.Navigator screenOptions={{ headerShown: false }}>
 			<AuthenticationStack.Screen name='Login' component={Login} />
 		</AuthenticationStack.Navigator>
-	)
-}
-
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-	return (
-		// <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-		// 	<RootNavigator />
-		// </NavigationContainer>
-		<NavigationContainer>
-			<AuthenticationNavigator />
-		</NavigationContainer>
 	)
 }
 
@@ -68,7 +59,19 @@ function RootNavigator() {
 		</Stack.Navigator>
 	)
 }
-
+export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+	return (
+		// <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+		// 	<RootNavigator />
+		// </NavigationContainer>
+		<Provider store={store}>
+			<NavigationContainer>
+				<RootNavigator />
+				{/* <AuthenticationNavigator /> */}
+			</NavigationContainer>
+		</Provider>
+	)
+}
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator

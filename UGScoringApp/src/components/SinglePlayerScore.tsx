@@ -3,20 +3,32 @@
 import { View, Text, StyleSheet, Platform, Pressable } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
+interface Player {
+	name: string
+	bestScore: number
+	avatar: string
+}
 interface IProps {
 	add: () => any
 	minus: () => any
 	score: number
+	player: {
+		id: number
+		name: string
+		avatar: string
+		bestScore: number
+		currentScore: number
+	}
 }
 
-export default function SinglePlayerScore({ add, minus, score }: IProps) {
+export default function SinglePlayerScore({ add, minus, score, player }: IProps) {
 	return (
 		<View style={styles.wrapper}>
 			<View style={styles.container}>
 				<View style={styles.innerContainer}>
-					<Text>Players name</Text>
+					<Text>{player.name}</Text>
 					<View style={styles.iconDetails}>
-						<Text>{score}</Text>
+						<Text>{player.currentScore}</Text>
 					</View>
 				</View>
 			</View>
